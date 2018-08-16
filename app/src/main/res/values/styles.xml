@@ -7,5 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <declare-styleable name="keyboard">
+        <attr name="keyTextSize" format="string" />
+        <attr name="keyTextStyle" format="string" />
+        <attr name="keyBackground" format="reference" />
+    </declare-styleable>
 </resources>

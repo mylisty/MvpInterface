@@ -1,6 +1,7 @@
 package com.mvp.yunling.myapplication.basisfragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -50,6 +51,12 @@ public class TestThreeFragment extends BaseFragment {
     }
 
     private void initview() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
     }
     @Override
     public void onStart() {
@@ -80,4 +87,6 @@ public class TestThreeFragment extends BaseFragment {
         Log.e("onDetach","TestThreeFragment");
         super.onDetach();
     }
+
+
 }

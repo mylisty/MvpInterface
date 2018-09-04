@@ -18,6 +18,9 @@
         </activity>
         <activity android:name=".loginMVp.LoginActivity"/>
         <activity android:name=".daggermvp.daggerlogin.DaggerLoginActivity"/>
+        <activity android:name=".base.TestFragmentActivity"
+            android:theme="@style/ActivityTheme"
+            />
     </application>
 
 </manifest>

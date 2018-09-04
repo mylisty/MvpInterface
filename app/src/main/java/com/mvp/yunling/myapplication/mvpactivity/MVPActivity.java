@@ -3,6 +3,7 @@ package com.mvp.yunling.myapplication.mvpactivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.mvp.yunling.myapplication.R;
+
 
 /**
  *  Created by yunling on 2018/6/7.
@@ -44,7 +46,7 @@ public class MVPActivity  extends AppCompatActivity implements IDownloadView {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDownloadPresenter.download("开始下载");
+               mDownloadPresenter.download("开始下载");
             }
         });
 

@@ -8,11 +8,12 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.mvp.yunling.myapplication.base.TestFragmentActivity;
 import com.mvp.yunling.myapplication.daggermvp.daggerlogin.DaggerLoginActivity;
 import com.mvp.yunling.myapplication.loginMVp.LoginActivity;
 
 /**
- * Created by yunling on 2018/6/7.
+ *   Created by yunling on 2018/6/7.
  */
 
 public class DownloadModel implements IDownloadModel  {
@@ -42,7 +43,7 @@ public class DownloadModel implements IDownloadModel  {
 
     @Override
     public void next(Context context) {
-        context.startActivity(new Intent(context.getApplicationContext(), DaggerLoginActivity.class));
+        context.startActivity(new Intent(context.getApplicationContext(), TestFragmentActivity.class));
     }
 
     @SuppressLint("HandlerLeak")

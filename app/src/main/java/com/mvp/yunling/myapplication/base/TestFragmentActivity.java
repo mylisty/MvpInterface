@@ -1,6 +1,5 @@
 package com.mvp.yunling.myapplication.base;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,12 +10,19 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mvp.yunling.myapplication.MyApplication;
 import com.mvp.yunling.myapplication.R;
 import com.mvp.yunling.myapplication.SharedPreferencesUtils;
 import com.mvp.yunling.myapplication.basisfragment.TestFragment;
 import com.mvp.yunling.myapplication.basisfragment.TestTwoFragment;
+
+import junit.framework.Test;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import me.yokeyword.swipebackfragment.SwipeBackActivity;
 
@@ -27,6 +33,7 @@ import me.yokeyword.swipebackfragment.SwipeBackActivity;
 public class TestFragmentActivity extends SwipeBackActivity implements BaseFragment.OnAddFragmentListener {
 
     private TestFragment firstFragment;
+    private EditText editText;
 
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
@@ -36,6 +43,7 @@ public class TestFragmentActivity extends SwipeBackActivity implements BaseFragm
         // the fragment_container FrameLayout
         Button button = (Button) findViewById(R.id.button);
         Button button2 = (Button) findViewById(R.id.button2);
+        editText = (EditText) findViewById(R.id.edit_text);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,9 +58,17 @@ public class TestFragmentActivity extends SwipeBackActivity implements BaseFragm
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                String regExp = "^[\\u4E00-\\u9FA5\\uf900-\\ufa2d·s]{2,20}$";
+                Pattern p = Pattern.compile(regExp);
+                Matcher matcher = p.matcher(editText.getText().toString().trim());
+                Toast.makeText(TestFragmentActivity.this, ""+matcher.matches(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+
       /*  if (findViewById(R.id.fragment_container) != null) {
 
             // However, if we're being restored from a previous state,
@@ -122,7 +138,7 @@ public class TestFragmentActivity extends SwipeBackActivity implements BaseFragm
     }
     private void loadFragment(Fragment toFragment) {
         getSupportFragmentManager().beginTransaction()
-                //.setCustomAnimations(R.anim.h_fragment_enter, R.anim.h_fragment_exit, R.anim.h_fragment_pop_enter, R.anim.h_fragment_pop_exit)
+                .setCustomAnimations(R.anim.h_fragment_enter, R.anim.h_fragment_exit, R.anim.h_fragment_pop_enter, R.anim.h_fragment_pop_exit)
                 .add(R.id.fragment_container, toFragment, toFragment.getClass().getSimpleName())
                 .addToBackStack(toFragment.getClass().getSimpleName())
                 .commit();
@@ -141,15 +157,15 @@ public class TestFragmentActivity extends SwipeBackActivity implements BaseFragm
             super.onBackPressed();
         }
     }
-
- /*   @Override
+    private long firstTime;
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME) ) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME) &&getSupportFragmentManager().getBackStackEntryCount() == 0 ) {
             return true;
         } else {
             return super.onKeyDown(keyCode, event);
         }
-    }*/
+    }
 
     @Override
     public void onAddFragment(Fragment fromFragment, Fragment toFragment) {

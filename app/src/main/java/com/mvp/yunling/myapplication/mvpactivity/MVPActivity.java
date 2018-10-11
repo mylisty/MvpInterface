@@ -6,11 +6,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.mvp.yunling.myapplication.R;
+import com.mvp.yunling.myapplication.Utils;
 
 
 /**
@@ -39,7 +41,9 @@ public class MVPActivity  extends AppCompatActivity implements IDownloadView {
         findViewById(R.id.downloadBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDownloadPresenter.next(MVPActivity.this);
+                boolean fastClick = Utils.isFastClick();
+                Log.e("dddddddddddddd"," fastClidst" + fastClick);
+              //  mDownloadPresenter.next(MVPActivity.this);;
             }
         });
         button = findViewById(R.id.downloadBtn1);

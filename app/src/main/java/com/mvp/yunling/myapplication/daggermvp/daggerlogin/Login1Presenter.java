@@ -18,7 +18,6 @@ public class Login1Presenter extends BasePresenter<Login1Contract.ILoginModel,Lo
 
 
     public void login(){
-
         new Thread(){
             @Override
             public void run() {

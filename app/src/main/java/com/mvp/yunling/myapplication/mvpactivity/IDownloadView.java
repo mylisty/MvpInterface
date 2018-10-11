@@ -6,7 +6,7 @@ package com.mvp.yunling.myapplication.mvpactivity;
 //View Interface
 public interface IDownloadView {
     /**
-     * 显示进度条
+     * 显示进度条 //annotation
      * @param show
      */
     void showProgressBar(boolean show);

@@ -40,7 +40,6 @@ public class TestTwoFragment extends BaseFragment {
     }
 
     @Nullable
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.article_view2, container, false);
         button = view.findViewById(R.id.button4);

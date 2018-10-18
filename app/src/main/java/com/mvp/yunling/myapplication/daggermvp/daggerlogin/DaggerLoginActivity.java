@@ -32,7 +32,11 @@ public class DaggerLoginActivity extends BaseMvpActivity<Login1Presenter> implem
         button = findViewById(R.id.button);
         textView = findViewById(R.id.textView);
         init();
-        DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build().inject(this);
+        DaggerLoginComponent.
+                builder().
+                loginModule(new LoginModule(this))
+                .build()
+                .inject(this);
     }
 
     private void init() {

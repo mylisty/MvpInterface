@@ -2,6 +2,7 @@ package com.mvp.yunling.myapplication.daggermvp.daggerlogin;
 
 import javax.inject.Singleton;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 
@@ -9,7 +10,7 @@ import dagger.Provides;
  *  Created by yunling on 2018/6/8.
  */
 @Module
-public class LoginModule {
+public  class LoginModule {
     private Login1Contract.ILoginView iLoginView;
 
     public LoginModule(Login1Contract.ILoginView iLoginView) {
